@@ -6,11 +6,25 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      squares: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+      squares: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      crossLocation: null,
+      zeroLocation: null
+
     }
   }
+  componentDidMount(){
+    let cross = Math.floor(Math.random() * this.state.squares.length)
+    this.setState({crossLocation: cross})
+    
+  }
+
 handleGameplay = (index) => {
-  alert(index)
+
+  const {squares} = this.state
+  
+    squares[index]= "❌"
+    this.setState({squares: squares})
+  
 }
   render(){
     return(
@@ -20,9 +34,13 @@ handleGameplay = (index) => {
 
          
         {this.state.squares.map((value, index) =>{ 
-          return <Square value={value}
+          return (<Square value={value}
           index = {index}
+          key = {index}
+          handleGameplay={this.handleGameplay}
+
            />
+          )
           })}
         </div>
       </>
@@ -30,4 +48,3 @@ handleGameplay = (index) => {
   }
 }
 export default App
-//

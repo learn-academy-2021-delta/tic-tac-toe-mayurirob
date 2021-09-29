@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class Square extends Component{
-  handleclick = () => alert (this.props.index)
+  handleclick = () => {this.props.handleGamePlay (this.props.index)}
   render(){
     return(
       <>
@@ -11,4 +11,3 @@ class Square extends Component{
   }
 }
 export default Square
-//
