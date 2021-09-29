@@ -9,14 +9,25 @@ class App extends Component{
       squares: [0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
   }
-
+handleGameplay = (index) => {
+  alert(index)
+}
   render(){
     return(
       <>
         <h1>Tic Tac Toe</h1>
-        <Square />
+         <div className="gameboard">
+
+         
+        {this.state.squares.map((value, index) =>{ 
+          return <Square value={value}
+          index = {index}
+           />
+          })}
+        </div>
       </>
     )
   }
 }
 export default App
+//
